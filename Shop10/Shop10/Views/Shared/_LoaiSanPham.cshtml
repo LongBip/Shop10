@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ShopOnlineConection.LoaiSanPham>
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">DANH MỤC SẢN PHẨM</a>
+    <div class="dropdown-menu mega-menu">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <ul class="mega-menu-links">
+                    @foreach (var item in Model)
+                    {
+                    <li><a href="@Url.Action("Index","LoaiSanPham",new {id= item.MaLoaiSanPham })">@item.TenLoaiSanPham</a></li>
+                    }
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</li>

@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+<script src="~/Areas/Admin/AssetAdmin/js/product/previewFile.js"></script>
+<h2>Create</h2>
+<style>
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #2a9fd6;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+</style>
+@using (Html.BeginForm("Create", "SanP", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<table style="width:100% ;margin:auto;">
+    <tr>
+        <td>Mã Sản Phẩm</td>
+        <td> <input style="width: 300px;float:left;height:35px " maxlength="11" type="text" name="MaSanPham" required /></td>
+        <td rowspan="8">
+            <div>
+                <img id="target" class="img" src=" #" alt="your image" style="float:right;width:320px;height:300px;" />
+            </div>
+    </tr>
+    <tr>
+        <td>Mã Nhà Sản Xuất</td>
+        <td>
+            @Html.DropDownList("MaNhaSanXuat", null, new { @style = "float:left; width: 300px; background:white;height:30px;" })
+        </td>
+    </tr>
+    <tr>
+        <td>Tên Sản Phẩm</td>
+        <td> <input style="width: 300px;float:left;height:35px" maxlength="11" type="text" name="TenSanPham" /></td>
+    </tr>
+    <tr>
+        <td>Hình Chính</td>
+        <td> <input type="File" class="img" id="File_HinhChinh" name=" HinhChinh"  style="float:left"></td>
+    </tr>
+    <tr>
+        <td>Hình nhỏ 1</td>
+        <td> <input type="File" id="file_Hinh1 name=" Hinh1"  style="float:left"></td>
+    </tr>
+    <tr>
+        <td>Hình nhỏ 2</td>
+        <td> <input type="File" id="file_Hinh2 name=" Hinh2"  style="float:left"></td>
+    </tr>
+    <tr>
+        <td>Hình nhỏ 3</td>
+        <td> <input type="File" id="file_Hinh3" name=" Hinh3"  style="float:left"></td>
+    </tr>
+    <tr>
+        <td>Hình nhỏ 4</td>
+        <td> <input type="File" id="file_Hinh4" name=" Hinh4"  style="float:left"></td>
+    </tr>
+    <tr>
+        <td>Giá</td>
+        <td> <input style="width: 300px; float: left; height: 35px;" type="number" name="Gia" required /></td>
+    </tr>
+    <tr>
+        <td>Ghi Chú</td>
+        <td> <input style="width: 300px; float: left; height: 35px;" type="text" name="GhiChu" required /></td>
+    </tr>
+    @*<tr>
+        <td>Xuất Sứ</td>
+        <td>
+            <select name="XuatSu" style="float: left; width: 300px; height:20px; border-radius: 20px ">
+                <option>Hàng Trong nước</option>
+                <option>Hàng Nhập Ngoại</option>
+            </select>
+        </td>
+    </tr>*@
+    <tr>
+        <td>Nhà Sản Xuất</td>
+        <td>
+            @*@Html.DropDownList("MaLoaiSanPham", null, new { @style = "float:left; width: 300px; background:black;height:30px;" })*@
+
+        </td>
+    </tr>
+    <tr>
+
+        <td style="width: 300px;">Thông Tin</td>
+        <td colspan="2">@*<textarea class="ckeditor" name="CauHinh" style="width: 300px; height: 150px; max-width: 100px; max-height: 600px; background:white;" rows="4" cols="30"></textarea>*@</td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <input style="height: 40px; width: 300px; margin-left: 32%; background: #33FFCE; color: #fff; border: 1px solid #eee; border-radius: 20px; box-shadow: 1px 1px 1px #eee; "
+                   type="submit" name="btn_ThemSanPham" value="Hoàn tất thêm mẫu thời trang" />
+        </td>
+    </tr>
+</table>
+}

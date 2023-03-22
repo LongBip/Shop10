@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ShopOnlineConection.SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+<div class="container">
+
+    <h2>Quản Lý Nhà Sản Xuât</h2>
+    <table class="table table-bordered table-striped table-responsive-stack" id="tableOne">
+        <thead class="thead-dark">
+            <tr>
+                <th>Mã Nhà Sản Xuất</th>
+                <th>Tên Nhà Sản XUất</th>
+                <th>Tinh Trạng</th>
+                <th> Hình Ảnh</th>
+                <th colspan="2">
+                    <a href="@Url.Action("Create","SanP")"><img src="~/Areas/Admin/AssetAdmin/img/icons/1.png" style="margin-left:45%;" /></a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaSanPham</td>
+                    <td>@item.TenSanPham</td>
+                    <td>@item.TinhTrang</td>
+                    <td><img src="~/Asset/images/products/small/@item.HinhChinh" style="width:50px;height:72px;"</td>
+                    <td><a href="@Url.Action("Edit", "SanP",new {id=@item.MaSanPham })"><img src="~/Areas/Admin/AssetAdmin/img/icons/3.png" /></a></td>
+                    <td><a href="@Url.Action("XoaTamThoi","SanP",new { id =@item.MaSanPham})"> <img src="~/Areas/Admin/AssetAdmin/img/icons/2.png" /></a> </td>
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+
+</div>

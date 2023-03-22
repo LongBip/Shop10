@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ShopOnlineConection.SanPham>
+<div class="clearfix"></div>
+<div class="featured-products">
+    <h3 class="title"><strong>NEW </strong> Products</h3>
+    <div class="control"><a id="prev_featured" class="prev" href="#">&lt;</a><a id="next_featured" class="next" href="#">&gt;</a></div>
+    <ul id="featured">
+        <li>
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3 col-sm-6">
+                        <div class="products">
+                            <div class="thumbnail">
+                                <a href="@Url.Action("Details","Shop" ,new { id = @item.MaSanPham })">
+                                    <img src="~/Asset/images/products/small/@item.HinhChinh" alt="Tên Sản Phẩm">
+                                </a>
+                            </div>
+                            <div class="productname">
+                                @item.TenSanPham
+                            </div>
+                            <h4 class="price">
+                                @item.Gia VNĐ
+                            </h4>
+                            <div class="button_group">
+                                <button class="button add-cart" type="button">
+                                    Thêm Vào Giỏ
+                                </button>
+                                @*<button class="button compare" type="button">
+                            <i class="fa fa-exchange">
+                            </i>
+                        </button>*@
+                                <button class="button wishlist" type="button">
+                                    <i class="fa fa-heart-o">
+                                    </i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </li>
+        <li>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 col-sm-6">
+                    <div class="products">
+                        <div class="thumbnail">
+                            <a href="@Url.Action("Details","Shop" ,new { id = @item.MaSanPham })">
+                                <img src="~/Asset/images/products/small/@item.HinhChinh" alt="Tên Sản Phẩm">
+                            </a>
+                        </div>
+                        <div class="productname">
+                            @item.TenSanPham
+                        </div>
+                        <h4 class="price">
+                            @item.Gia VNĐ
+                        </h4>
+                        <div class="button_group">
+                            <button class="button add-cart" type="button">
+                                Thêm Vào Giỏ
+                            </button>
+                            @*<button class="button compare" type="button">
+                            <i class="fa fa-exchange">
+                            </i>
+                        </button>*@
+                            <button class="button wishlist" type="button">
+                                <i class="fa fa-heart-o">
+                                </i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </li>
+    </ul>
+</div>
+<div class="clearfix"></div>

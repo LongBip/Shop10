@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+@*@using PagedList.Mvc;*@
+<style>
+    table {
+        border-collapse: collapse;
+        width: 50%;
+        margin: auto;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #5d5e63;
+    }
+
+    th {
+        background-color: #2a9fd6;
+        color: white;
+    }
+</style>
+<h2>Quản Lý Loại Sản Phẩm</h2>
+@*@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
+<table>
+    <tr>
+        <th>Mã Loại Sản Phẩm</th>
+        <th>Tên Loại Sản Phẩm</th>
+        <th>Tình Trạng</th>
+        <th colspan="2">
+            <a href="@Url.Action("Create","LoaiSP")"><img src="~/Areas/Admin/AssetAdmin/img/icons/1.png" /></a>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaLoaiSanPham</td>
+            <td>@item.TenLoaiSanPham</td>
+            <td>@item.TinhTrang</td>
+            <td><a href="@Url.Action("Edit","LoaiSP",new { id = @item.MaLoaiSanPham})"> <img src="~/Areas/Admin/AssetAdmin/img/icons/3.png" /></a> </td>
+            <td><a href="@Url.Action("XoaTamThoi","LoaiSP",new { id = @item.MaLoaiSanPham})"> <img src="~/Areas/Admin/AssetAdmin/img/icons/2.png" /></a> </td>
+        </tr>
+    }
+
+</table>
+
+
